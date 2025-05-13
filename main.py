@@ -26,18 +26,12 @@ async def parse_job_posting(payload: JobEmail):
             highest_score = score
             best_match = keyword
 
-    if highest_score >= 70:
-        return {
-            "company": "Unknown Company",
-            "title": best_match,
-            "link": "https://example.com/job",
-            "score": highest_score
-        }
-    else:
-        return {
-            "message": "No strong match found",
-            "score": highest_score
-        }
+    return {
+        "company": "Unknown Company",
+        "title": best_match,
+        "link": "https://example.com/job",
+        "score": highest_score
+    }
 
 # This block is not necessary for Render since Render manages the ASGI server
 # But it's harmless to leave in for local testing
